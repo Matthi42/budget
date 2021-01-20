@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 align="center">Eintrag</h1>
+    <form action="/submitModifiedForm" id="expense" th:object="${expense}" method="post">
+        <div class="row">
+            <div class="col-6">
+                <label>Name der Ausgabe</label>
+            </div>
+            <div class="col-6">
+                <input th:field="*{name}" id="name" type="text" class="form-control" required maxlength="255">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"><label for="betrag">Geldbetrag in cent</label></div>
+            <div class="col-6">
+                <input th:field="*{betrag}" id="betrag" type="number" class="form-control" min="0" max="100000000">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6"><label for="date">Datum</label></div>
+            <div class="col-6">
+                <input th:field="*{date}" id="date" type="date" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"><label for="notiz">Notiz</label></div>
+            <div class="col-6">
+                <input th:field="*{notiz}" id="notiz" type="text" class="form-control" maxlength="255">
+
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Senden!" class="form-control btn btn-primary">
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
