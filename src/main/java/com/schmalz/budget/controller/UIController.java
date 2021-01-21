@@ -52,7 +52,7 @@ public class UIController {
     @GetMapping("/modifyExpense")
     public String modifyExpense(@RequestParam(value ="id")Long id, Model model){
         model.addAttribute("expense",repo.findById(id));
-        repo.deleteById(id);
+        //repo.deleteById(id);
         return "modifyForm";
     }
 
